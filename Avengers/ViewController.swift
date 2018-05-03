@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreML
+import Vision
 
 final class ViewController: UIViewController {
 
@@ -82,8 +83,30 @@ final class ViewController: UIViewController {
     present(controller, animated: true, completion: nil)
   }
 
-  private func detect(image: UIImage) {
+  private func detect(image: UIImage) throws {
     loadingIndicator.startAnimating()
+
+    let url = Bundle.main.url(forResource: "AvengersModels_891199744", withExtension: "mlmodel")!
+    let model = try MLModel(contentsOf: url)
+    let visionModel = try VNCoreMLModel(for: model)
+    let request = VNCoreMLRequest(model: visionModel, completionHandler: { [weak self] request, error in
+      guard let results = request.results as? [VNClassificationObservation],
+        let topResult = results.first else {
+        print(error as Any)
+        return
+      }
+
+      self?.resultLabel.text = topResult.identifier + "(confidence \(topResult.confidence * 100)"
+    })
+
+    let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+    DispatchQueue.global(qos: .userInteractive).async {
+      do {
+        try handler.perform([request])
+      } catch {
+        print(error)
+      }
+    }
   }
 }
 
@@ -95,6 +118,6 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
 
     picker.dismiss(animated: true, completion: nil)
     imageView.image = image
-    detect(image: image)
+    try? detect(image: image)
   }
 }
