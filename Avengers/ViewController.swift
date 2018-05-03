@@ -42,9 +42,11 @@ final class ViewController: UIViewController {
     view.addSubview(imageView)
     view.addSubview(resultLabel)
 
+    selectButton.addTarget(self, action: #selector(selectedButtonTouched), for: .touchUpInside)
+
     NSLayoutConstraint.on(constraints: [
       imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-      imageView.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1),
+      imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1),
       imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
 
       resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -54,5 +56,20 @@ final class ViewController: UIViewController {
       selectButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20)
     ])
   }
+
+  @objc private func selectedButtonTouched() {
+    showPicker()
+  }
+
+  private func showPicker() {
+    let controller = UIImagePickerController()
+    controller.delegate = self
+    present(controller, animated: true, completion: nil)
+  }
 }
 
+extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+  }
+}
