@@ -13,6 +13,7 @@
 		D2A9703E209B4CCF00B50D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A9703D209B4CCF00B50D1B /* Assets.xcassets */; };
 		D2A97041209B4CCF00B50D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9703F209B4CCF00B50D1B /* LaunchScreen.storyboard */; };
 		D2A97049209B4DAE00B50D1B /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A97048209B4DAE00B50D1B /* Constraints.swift */; };
+		D2A9704B209B526900B50D1B /* AvengersModels_891199744.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2A9704A209B526900B50D1B /* AvengersModels_891199744.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D2A97040209B4CCF00B50D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A97042209B4CCF00B50D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2A97048209B4DAE00B50D1B /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		D2A9704A209B526900B50D1B /* AvengersModels_891199744.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = AvengersModels_891199744.mlmodel; path = model/AvengersModels_891199744.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		D2A97035209B4CCE00B50D1B /* Avengers */ = {
 			isa = PBXGroup;
 			children = (
+				D2A9704A209B526900B50D1B /* AvengersModels_891199744.mlmodel */,
 				D2A97036209B4CCE00B50D1B /* AppDelegate.swift */,
 				D2A97038209B4CCE00B50D1B /* ViewController.swift */,
 				D2A9703A209B4CCE00B50D1B /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A9704B209B526900B50D1B /* AvengersModels_891199744.mlmodel in Sources */,
 				D2A97039209B4CCE00B50D1B /* ViewController.swift in Sources */,
 				D2A97049209B4DAE00B50D1B /* Constraints.swift in Sources */,
 				D2A97037209B4CCE00B50D1B /* AppDelegate.swift in Sources */,
