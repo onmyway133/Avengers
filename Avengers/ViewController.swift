@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreML
 
 final class ViewController: UIViewController {
 
@@ -33,6 +34,13 @@ final class ViewController: UIViewController {
     return label
   }()
 
+  private lazy var loadingIndicator: UIActivityIndicatorView = {
+    let view = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    view.hidesWhenStopped = true
+    view.tintColor = .green
+    return view
+  }()
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -43,6 +51,7 @@ final class ViewController: UIViewController {
     view.addSubview(selectButton)
     view.addSubview(imageView)
     view.addSubview(resultLabel)
+    view.addSubview(loadingIndicator)
 
     selectButton.addTarget(self, action: #selector(selectedButtonTouched), for: .touchUpInside)
 
@@ -56,7 +65,10 @@ final class ViewController: UIViewController {
       resultLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
 
       selectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      selectButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20)
+      selectButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20),
+
+      loadingIndicator.leftAnchor.constraint(equalTo: selectButton.leftAnchor, constant: 10),
+      loadingIndicator.centerYAnchor.constraint(equalTo: selectButton.centerYAnchor)
     ])
   }
 
@@ -69,6 +81,10 @@ final class ViewController: UIViewController {
     controller.delegate = self
     present(controller, animated: true, completion: nil)
   }
+
+  private func detect(image: UIImage) {
+    loadingIndicator.startAnimating()
+  }
 }
 
 extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -79,5 +95,6 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
 
     picker.dismiss(animated: true, completion: nil)
     imageView.image = image
+    detect(image: image)
   }
 }
