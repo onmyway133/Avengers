@@ -14,12 +14,13 @@ final class ViewController: UIViewController {
     let button = UIButton()
     button.setTitle("Select image", for: .normal)
     button.setTitleColor(.black, for: .normal)
+    button.setTitleColor(.gray, for: .highlighted)
     return button
   }()
 
   private lazy var imageView: UIImageView = {
     let view = UIImageView()
-    view.contentMode = .scaleAspectFit
+    view.contentMode = .scaleAspectFill
     return view
   }()
 
@@ -47,7 +48,8 @@ final class ViewController: UIViewController {
     NSLayoutConstraint.on(constraints: [
       imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
       imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1),
-      imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+      imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+      imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
       resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       resultLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
@@ -70,6 +72,10 @@ final class ViewController: UIViewController {
 
 extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+      return
+    }
 
+    imageView.image = image
   }
 }
