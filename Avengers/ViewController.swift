@@ -21,6 +21,7 @@ final class ViewController: UIViewController {
   private lazy var imageView: UIImageView = {
     let view = UIImageView()
     view.contentMode = .scaleAspectFill
+    view.clipsToBounds = true
     return view
   }()
 
@@ -76,6 +77,7 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
       return
     }
 
+    picker.dismiss(animated: true, completion: nil)
     imageView.image = image
   }
 }
