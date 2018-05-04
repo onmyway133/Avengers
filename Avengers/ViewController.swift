@@ -38,7 +38,7 @@ final class ViewController: UIViewController {
   private lazy var loadingIndicator: UIActivityIndicatorView = {
     let view = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     view.hidesWhenStopped = true
-    view.tintColor = .green
+    view.color = .green
     return view
   }()
 
@@ -68,7 +68,7 @@ final class ViewController: UIViewController {
       selectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       selectButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20),
 
-      loadingIndicator.leftAnchor.constraint(equalTo: selectButton.leftAnchor, constant: 10),
+      loadingIndicator.leftAnchor.constraint(equalTo: selectButton.rightAnchor, constant: 10),
       loadingIndicator.centerYAnchor.constraint(equalTo: selectButton.centerYAnchor)
     ])
   }
@@ -95,7 +95,10 @@ final class ViewController: UIViewController {
         return
       }
 
-      self?.resultLabel.text = topResult.identifier + "(confidence \(topResult.confidence * 100)"
+      DispatchQueue.main.async {
+        self?.resultLabel.text = topResult.identifier + "(confidence \(topResult.confidence * 100)%)"
+        self?.loadingIndicator.stopAnimating()
+      }
     })
 
     let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
