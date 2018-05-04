@@ -96,7 +96,7 @@ final class ViewController: UIViewController {
       }
 
       DispatchQueue.main.async {
-        self?.resultLabel.text = topResult.identifier + "(confidence \(topResult.confidence * 100)%)"
+        self?.resultLabel.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
         self?.loadingIndicator.stopAnimating()
       }
     })
