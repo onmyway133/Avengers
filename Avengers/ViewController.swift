@@ -87,10 +87,8 @@ final class ViewController: UIViewController {
   private func detect(image: UIImage) throws {
     loadingIndicator.startAnimating()
 
-    let url = Bundle.main.url(forResource: "AvengersModels_891199744", withExtension: "mlmodel")!
-    let model = try MLModel(contentsOf: url)
-    let visionModel = try VNCoreMLModel(for: model)
-    let request = VNCoreMLRequest(model: visionModel, completionHandler: { [weak self] request, error in
+    let model = try VNCoreMLModel(for: AvengersModels().model)
+    let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
       guard let results = request.results as? [VNClassificationObservation],
         let topResult = results.first else {
         print(error as Any)
