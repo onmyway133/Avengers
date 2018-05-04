@@ -5,6 +5,10 @@
 - Demo how to use IBM Watson and CoreML
 - Read my blog post 
 
+<div align="center">
+<img src="Screenshots/Result.png">
+</div>
+
 ## Author
 
 Khoa Pham, onmyway133@gmail.com
