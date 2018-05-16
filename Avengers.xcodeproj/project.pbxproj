@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D26CDFD820AC9BA4000B1A96 /* AzureCustomVision.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D26CDFD620AC9BA4000B1A96 /* AzureCustomVision.mlmodel */; };
+		D26CDFD920AC9BA4000B1A96 /* IBMWatson.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D26CDFD720AC9BA4000B1A96 /* IBMWatson.mlmodel */; };
 		D2A97037209B4CCE00B50D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A97036209B4CCE00B50D1B /* AppDelegate.swift */; };
 		D2A97039209B4CCE00B50D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A97038209B4CCE00B50D1B /* ViewController.swift */; };
 		D2A9703C209B4CCE00B50D1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9703A209B4CCE00B50D1B /* Main.storyboard */; };
 		D2A9703E209B4CCF00B50D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A9703D209B4CCF00B50D1B /* Assets.xcassets */; };
 		D2A97041209B4CCF00B50D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9703F209B4CCF00B50D1B /* LaunchScreen.storyboard */; };
 		D2A97049209B4DAE00B50D1B /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A97048209B4DAE00B50D1B /* Constraints.swift */; };
-		D2A9704B209B526900B50D1B /* AvengersModels.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2A9704A209B526900B50D1B /* AvengersModels.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D26CDFD620AC9BA4000B1A96 /* AzureCustomVision.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = AzureCustomVision.mlmodel; path = model/AzureCustomVision.mlmodel; sourceTree = SOURCE_ROOT; };
+		D26CDFD720AC9BA4000B1A96 /* IBMWatson.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = IBMWatson.mlmodel; path = model/IBMWatson.mlmodel; sourceTree = SOURCE_ROOT; };
 		D2A97033209B4CCE00B50D1B /* Avengers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avengers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A97036209B4CCE00B50D1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2A97038209B4CCE00B50D1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +28,6 @@
 		D2A97040209B4CCF00B50D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A97042209B4CCF00B50D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2A97048209B4DAE00B50D1B /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
-		D2A9704A209B526900B50D1B /* AvengersModels.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = AvengersModels.mlmodel; path = model/AvengersModels.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 		D2A97035209B4CCE00B50D1B /* Avengers */ = {
 			isa = PBXGroup;
 			children = (
-				D2A9704A209B526900B50D1B /* AvengersModels.mlmodel */,
+				D26CDFD620AC9BA4000B1A96 /* AzureCustomVision.mlmodel */,
+				D26CDFD720AC9BA4000B1A96 /* IBMWatson.mlmodel */,
 				D2A97036209B4CCE00B50D1B /* AppDelegate.swift */,
 				D2A97038209B4CCE00B50D1B /* ViewController.swift */,
 				D2A9703A209B4CCE00B50D1B /* Main.storyboard */,
@@ -141,10 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A9704B209B526900B50D1B /* AvengersModels.mlmodel in Sources */,
 				D2A97039209B4CCE00B50D1B /* ViewController.swift in Sources */,
 				D2A97049209B4DAE00B50D1B /* Constraints.swift in Sources */,
+				D26CDFD920AC9BA4000B1A96 /* IBMWatson.mlmodel in Sources */,
 				D2A97037209B4CCE00B50D1B /* AppDelegate.swift in Sources */,
+				D26CDFD820AC9BA4000B1A96 /* AzureCustomVision.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
