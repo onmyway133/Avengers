@@ -79,7 +79,7 @@ final class ViewController: UIViewController {
 
   private func showPicker() {
     let controller = UIImagePickerController()
-    controller.sourceType = .camera
+    controller.sourceType = .photoLibrary
     controller.delegate = self
     present(controller, animated: true, completion: nil)
   }
