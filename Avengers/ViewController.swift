@@ -87,7 +87,8 @@ final class ViewController: UIViewController {
   private func detect(image: UIImage) throws {
     loadingIndicator.startAnimating()
 
-    let model = try VNCoreMLModel(for: AzureCustomVision().model)
+    let model = try VNCoreMLModel(for: TuriCreate().model)
+
     let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
       guard let results = request.results as? [VNClassificationObservation],
         let topResult = results.first else {
