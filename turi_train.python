@@ -7,7 +7,7 @@ data = tc.SFrame('turi.sframe')
 train_data, test_data = data.random_split(0.8)
 
 # 3. Create model
-model = tc.image_classifier.create(train_data, target='hero_name')
+model = tc.image_classifier.create(train_data, target='hero_name', model='squeezenet_v1.1')
 
 # 4. Predictions
 predictions = model.predict(test_data)
