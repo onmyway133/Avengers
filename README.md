@@ -2,7 +2,7 @@
 
 ## Description
 
-- Demo how to use IBM Watson and CoreML
+- Demo how to use CoreML with IBM Watson, Azure Custom Vision, Turi Create, Tensorflow and Keras.
 - Read my blog post [Detecting Avengers superheroes in your iOS app with IBM Watson and CoreML](https://medium.com/flawless-app-stories/detecting-avengers-superheroes-in-your-ios-app-with-ibm-watson-and-coreml-fe38e493a4d1)
 
 <div align="center">
