@@ -14,6 +14,11 @@
 		D2D885F9236C6F7600CAE6DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D885F7236C6F7600CAE6DD /* LaunchScreen.storyboard */; };
 		D2D88602236C706E00CAE6DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88601236C706E00CAE6DD /* MainView.swift */; };
 		D2D88606236C70D500CAE6DD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88605236C70D500CAE6DD /* ImagePicker.swift */; };
+		D2ED287F236E319900FA1782 /* IBMWatson.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2ED287C236E319900FA1782 /* IBMWatson.mlmodel */; };
+		D2ED2880236E319900FA1782 /* TuriCreate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2ED287D236E319900FA1782 /* TuriCreate.mlmodel */; };
+		D2ED2881236E319900FA1782 /* AzureCustomVision.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2ED287E236E319900FA1782 /* AzureCustomVision.mlmodel */; };
+		D2ED2884236E320900FA1782 /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED2883236E320900FA1782 /* Detector.swift */; };
+		D2ED2886236E341100FA1782 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED2885236E341100FA1782 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		D2D885FA236C6F7600CAE6DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D88601236C706E00CAE6DD /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D2D88605236C70D500CAE6DD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D2ED287C236E319900FA1782 /* IBMWatson.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = IBMWatson.mlmodel; path = model/IBMWatson.mlmodel; sourceTree = SOURCE_ROOT; };
+		D2ED287D236E319900FA1782 /* TuriCreate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = TuriCreate.mlmodel; path = model/TuriCreate.mlmodel; sourceTree = SOURCE_ROOT; };
+		D2ED287E236E319900FA1782 /* AzureCustomVision.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = AzureCustomVision.mlmodel; path = model/AzureCustomVision.mlmodel; sourceTree = SOURCE_ROOT; };
+		D2ED2883236E320900FA1782 /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
+		D2ED2885236E341100FA1782 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,17 +99,38 @@
 		D2D88603236C70C400CAE6DD /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				D2D88604236C70C900CAE6DD /* ImagePicker */,
+				D2ED2882236E31FD00FA1782 /* Detect */,
+				D2ED287B236E318800FA1782 /* CoreMLModel */,
+				D2D88604236C70C900CAE6DD /* Views */,
 			);
 			path = Library;
 			sourceTree = "<group>";
 		};
-		D2D88604236C70C900CAE6DD /* ImagePicker */ = {
+		D2D88604236C70C900CAE6DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D2D88605236C70D500CAE6DD /* ImagePicker.swift */,
+				D2ED2885236E341100FA1782 /* ActivityIndicator.swift */,
 			);
-			path = ImagePicker;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D2ED287B236E318800FA1782 /* CoreMLModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2ED287E236E319900FA1782 /* AzureCustomVision.mlmodel */,
+				D2ED287C236E319900FA1782 /* IBMWatson.mlmodel */,
+				D2ED287D236E319900FA1782 /* TuriCreate.mlmodel */,
+			);
+			path = CoreMLModel;
+			sourceTree = "<group>";
+		};
+		D2ED2882236E31FD00FA1782 /* Detect */ = {
+			isa = PBXGroup;
+			children = (
+				D2ED2883236E320900FA1782 /* Detector.swift */,
+			);
+			path = Detect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,9 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2ED2881236E319900FA1782 /* AzureCustomVision.mlmodel in Sources */,
 				D2D885ED236C6F7400CAE6DD /* AppDelegate.swift in Sources */,
 				D2D88606236C70D500CAE6DD /* ImagePicker.swift in Sources */,
+				D2ED2884236E320900FA1782 /* Detector.swift in Sources */,
+				D2ED287F236E319900FA1782 /* IBMWatson.mlmodel in Sources */,
 				D2D88602236C706E00CAE6DD /* MainView.swift in Sources */,
+				D2ED2880236E319900FA1782 /* TuriCreate.mlmodel in Sources */,
+				D2ED2886236E341100FA1782 /* ActivityIndicator.swift in Sources */,
 				D2D885EF236C6F7400CAE6DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
