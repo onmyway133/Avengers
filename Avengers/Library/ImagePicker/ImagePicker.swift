@@ -12,13 +12,13 @@ import SwiftUI
 import UIKit
 
 public struct ImagePicker: UIViewControllerRepresentable {
-    @Environment(\.presentationMode) private var presentationMode
     @Binding var image: UIImage?
+    @Binding var isPresented: Bool
 
     public func makeCoordinator() -> ImagePicker.Coordinator {
         return ImagePicker.Coordinator(
-            presentationMode: presentationMode,
-            image: $image
+            image: $image,
+            isPresented: $isPresented
         )
     }
 
@@ -35,12 +35,12 @@ public struct ImagePicker: UIViewControllerRepresentable {
 
 public extension ImagePicker {
     class Coordinator: NSObject, UINavigationControllerDelegate {
-        @Binding var presentationMode: PresentationMode
+        @Binding var isPresented: Bool
         @Binding var image: UIImage?
 
-        public init(presentationMode: Binding<PresentationMode>, image: Binding<UIImage?>) {
-            self._presentationMode = presentationMode
+        public init(image: Binding<UIImage?>, isPresented: Binding<Bool>) {
             self._image = image
+            self._isPresented = isPresented
         }
     }
 }
@@ -50,11 +50,11 @@ extension ImagePicker.Coordinator: UIImagePickerControllerDelegate {
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         self.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        presentationMode.dismiss()
+        isPresented = false
     }
 
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        presentationMode.dismiss()
+        isPresented = false
     }
 }
 

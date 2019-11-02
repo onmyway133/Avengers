@@ -11,6 +11,7 @@ import SwiftUI
 struct MainView: View {
     @State var showImagePicker: Bool = false
     @State var image: UIImage? = nil
+    @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct MainView: View {
                 Text("Choose image")
             })
             .sheet(isPresented: $showImagePicker, content: {
-                ImagePicker(image: self.$image)
+                ImagePicker(image: self.$image, isPresented: self.$showImagePicker)
             })
         }
     }
