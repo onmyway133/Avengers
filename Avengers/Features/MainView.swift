@@ -104,6 +104,7 @@ extension Image {
     func styleFit() -> some View {
         return self
             .resizable()
+            .aspectRatio(contentMode: .fit)
             .frame(width: 300, height: 300, alignment: .center)
     }
 }
