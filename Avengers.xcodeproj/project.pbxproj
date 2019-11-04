@@ -19,6 +19,7 @@
 		D2ED2881236E319900FA1782 /* AzureCustomVision.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2ED287E236E319900FA1782 /* AzureCustomVision.mlmodel */; };
 		D2ED2884236E320900FA1782 /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED2883236E320900FA1782 /* Detector.swift */; };
 		D2ED2886236E341100FA1782 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ED2885236E341100FA1782 /* ActivityIndicator.swift */; };
+		D2ED289223705E8100FA1782 /* CreateML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2ED289123705E8100FA1782 /* CreateML.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D2ED287E236E319900FA1782 /* AzureCustomVision.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = AzureCustomVision.mlmodel; path = model/AzureCustomVision.mlmodel; sourceTree = SOURCE_ROOT; };
 		D2ED2883236E320900FA1782 /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		D2ED2885236E341100FA1782 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		D2ED289123705E8100FA1782 /* CreateML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CreateML.mlmodel; path = CreateML/CreateML.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		D2ED287B236E318800FA1782 /* CoreMLModel */ = {
 			isa = PBXGroup;
 			children = (
+				D2ED289123705E8100FA1782 /* CreateML.mlmodel */,
 				D2ED287E236E319900FA1782 /* AzureCustomVision.mlmodel */,
 				D2ED287C236E319900FA1782 /* IBMWatson.mlmodel */,
 				D2ED287D236E319900FA1782 /* TuriCreate.mlmodel */,
@@ -213,6 +216,7 @@
 				D2ED2880236E319900FA1782 /* TuriCreate.mlmodel in Sources */,
 				D2ED2886236E341100FA1782 /* ActivityIndicator.swift in Sources */,
 				D2D885EF236C6F7400CAE6DD /* SceneDelegate.swift in Sources */,
+				D2ED289223705E8100FA1782 /* CreateML.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
