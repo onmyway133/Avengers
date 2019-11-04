@@ -7,13 +7,38 @@
 //
 
 import SwiftUI
+import Combine
+
+class ViewModel: ObservableObject {
+    var objectWillChange = ObservableObjectPublisher()
+    let imagePublisher = PassthroughSubject<UIImage, Never>()
+
+    var image: UIImage? {
+        didSet {
+            objectWillChange.send()
+            if let image = image {
+                imagePublisher.send(image)
+            }
+        }
+    }
+
+    var isDetecting: Bool = false {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+
+    var result: String? {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+}
 
 struct MainView: View {
     @State private var showImagePicker: Bool = false
-    @State private var image: UIImage? = nil
-    @State private var isDetecting: Bool = false
-    @State private var result: String?
-    @Environment(\.presentationMode) private var presentationMode
+    @ObservedObject var viewModel: ViewModel = ViewModel()
+
     private let detector = Detector()
 
     var body: some View {
@@ -21,9 +46,9 @@ struct MainView: View {
             makeImage()
                 .styleFit()
 
-            if isDetecting {
+            if viewModel.isDetecting {
                 ActivityIndicator(
-                    isAnimating: $isDetecting,
+                    isAnimating: $viewModel.isDetecting,
                     style: .large
                 )
             }
@@ -36,26 +61,17 @@ struct MainView: View {
                 Text("Choose image")
             })
             .sheet(isPresented: $showImagePicker, content: {
-                ImagePicker(image: self.$image, isPresented: self.$showImagePicker)
+                self.$view
+                ImagePicker(image: self.$viewModel.image, isPresented: self.$showImagePicker)
             })
         }
+        .onReceive(viewModel.imagePublisher, perform: { image in
+            self.detect(image: image)
+        })
     }
 
     private func makeImage() -> Image {
-        if let image = self.image {
-            self.isDetecting = true
-            try? self.detector.detect(image: image, completion: { result in
-                switch result {
-                case .success(let string):
-                    self.result = string
-                default:
-                    self.result = ""
-                }
-
-                self.isDetecting = false
-
-            })
-
+        if let image = self.viewModel.image {
             return Image(uiImage: image)
         } else {
             return Image("placeholder")
@@ -63,11 +79,25 @@ struct MainView: View {
     }
 
     private func makeResult() -> Text {
-        if let result = result {
+        if let result = viewModel.result {
             return Text(result)
         } else {
             return Text("")
         }
+    }
+
+    private func detect(image: UIImage) {
+        viewModel.isDetecting = true
+        try? detector.detect(image: image, completion: { result in
+            switch result {
+            case .success(let string):
+                self.viewModel.result = string
+            default:
+                self.viewModel.result = ""
+            }
+
+            self.viewModel.isDetecting = false
+        })
     }
 }
 
