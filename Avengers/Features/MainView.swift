@@ -61,7 +61,6 @@ struct MainView: View {
                 Text("Choose image")
             })
             .sheet(isPresented: $showImagePicker, content: {
-                self.$view
                 ImagePicker(image: self.$viewModel.image, isPresented: self.$showImagePicker)
             })
         }
