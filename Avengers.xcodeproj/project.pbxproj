@@ -38,6 +38,7 @@
 		D2ED2883236E320900FA1782 /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
 		D2ED2885236E341100FA1782 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D2ED289123705E8100FA1782 /* CreateML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CreateML.mlmodel; path = CreateML/CreateML.mlmodel; sourceTree = SOURCE_ROOT; };
+		D2ED28932370687500FA1782 /* CreateML Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "CreateML Playground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +55,7 @@
 		D2D885E0236C6F7400CAE6DD = {
 			isa = PBXGroup;
 			children = (
+				D2ED28932370687500FA1782 /* CreateML Playground.playground */,
 				D2D885EB236C6F7400CAE6DD /* Avengers */,
 				D2D885EA236C6F7400CAE6DD /* Products */,
 			);
