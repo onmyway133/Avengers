@@ -11,28 +11,10 @@ import Combine
 
 class ViewModel: ObservableObject {
     var objectWillChange = ObservableObjectPublisher()
-    let imagePublisher = PassthroughSubject<UIImage, Never>()
 
-    var image: UIImage? {
-        didSet {
-            objectWillChange.send()
-            if let image = image {
-                imagePublisher.send(image)
-            }
-        }
-    }
-
-    var isDetecting: Bool = false {
-        didSet {
-            objectWillChange.send()
-        }
-    }
-
-    var result: String? {
-        didSet {
-            objectWillChange.send()
-        }
-    }
+    @Published var image: UIImage?
+    @Published var isDetecting: Bool = false
+    @Published var result: String?
 }
 
 struct MainView: View {
@@ -64,8 +46,10 @@ struct MainView: View {
                 ImagePicker(image: self.$viewModel.image, isPresented: self.$showImagePicker)
             })
         }
-        .onReceive(viewModel.imagePublisher, perform: { image in
-            self.detect(image: image)
+        .onReceive(viewModel.$image, perform: { image in
+            if let image = image {
+                self.detect(image: image)
+            }
         })
     }
 
@@ -96,6 +80,7 @@ struct MainView: View {
             }
 
             self.viewModel.isDetecting = false
+            self.viewModel.objectWillChange.send()
         })
     }
 }
