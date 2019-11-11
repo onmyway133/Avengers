@@ -10,8 +10,6 @@ import SwiftUI
 import Combine
 
 class ViewModel: ObservableObject {
-    var objectWillChange = ObservableObjectPublisher()
-
     @Published var image: UIImage?
     @Published var isDetecting: Bool = false
     @Published var result: String?
@@ -80,7 +78,6 @@ struct MainView: View {
             }
 
             self.viewModel.isDetecting = false
-            self.viewModel.objectWillChange.send()
         })
     }
 }
