@@ -9,15 +9,20 @@
 import SwiftUI
 import Combine
 
-class ViewModel: ObservableObject {
-    @Published var image: UIImage?
-    @Published var isDetecting: Bool = false
-    @Published var result: String?
+struct ViewModel {
+    var imagePublisher = PassthroughSubject<UIImage?, Never>()
+    var image: UIImage? {
+        didSet {
+            imagePublisher.send(image)
+        }
+    }
+    var isDetecting: Bool = false
+    var result: String?
 }
 
 struct MainView: View {
     @State private var showImagePicker: Bool = false
-    @ObservedObject var viewModel: ViewModel = ViewModel()
+    @State private var viewModel: ViewModel = ViewModel()
 
     private let detector = Detector()
 
@@ -44,7 +49,7 @@ struct MainView: View {
                 ImagePicker(image: self.$viewModel.image, isPresented: self.$showImagePicker)
             })
         }
-        .onReceive(viewModel.$image, perform: { image in
+        .onReceive(viewModel.imagePublisher, perform: { image in
             if let image = image {
                 self.detect(image: image)
             }
